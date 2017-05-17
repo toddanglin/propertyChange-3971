@@ -1,0 +1,28 @@
+
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo" class="page">
+
+    <Page.actionBar>
+        <ActionBar title="propertyChange Test" icon="" class="action-bar">
+        </ActionBar>
+    </Page.actionBar>
+
+    <StackLayout class="p-20">
+        <!-- TEST 1: Declarative binding propertyChange does not work -->
+        <Label text="Property Change Event Test:" class="h2 text-center" style="margin-bottom: 30;" />
+        <TextField propertyChange="{{ onPropertyChange }}" style="border-bottom-width:1;border-bottom-color:black;font-size:24;" hint="Enter text" />
+        
+        <!-- TEST 2: Declarative binding textChange does not work -->
+        <Label text="Text Change Event Test:" class="h2 text-center" style="margin-bottom: 30; margin-top: 30;" />
+        <TextField textChange="{{ onPropertyChange }}" style="border-bottom-width:1;border-bottom-color:black;font-size:24;" hint="Enter text" />
+        
+        <!-- TEST 3: Programmatic binding event (this is the ONLY one that should work -->
+        <Label text="Programmatic Binding Change Event Test:" class="h2 text-center" style="margin-bottom: 30;margin-top:30;" />
+        <TextField id="myTxt" style="border-bottom-width:1;border-bottom-color:black;font-size:24;" hint="Enter text" />
+        
+        <!-- TEST 4: Another UI widget wtih property change -->
+        <Label text="Property Change Event Test:" class="h2 text-center" style="margin-bottom: 30;margin-top:30;" />
+        <Switch id="mySwitch" checked="false" checkedChange="{{ onPropertyChange }}" style="width:1;" />
+
+        <Label text="{{ log }}" class="h2 text-center" style="margin-top:60;" textWrap="true"/>
+    </StackLayout>
+</Page>
